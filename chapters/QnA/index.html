@@ -1,1 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="briefing">
+  <title>Agricultural Economics — Exam Preparation Study Note (Lectures 1 &amp; 2)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.2/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.18.2/dist/katex.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces: warm stone-white paper */
+      --background: #faf9f5;
+      --surface-container-low: #ffffff;
+      --surface-container: #f1efe8;
+      --surface-container-high: #e6e2d6;
+
+      /* Ink: #174c71 applied as primary font color throughout */
+      --on-surface: #174c71;
+      --on-surface-variant: #2f5e7e;
+
+      /* Rules */
+      --outline: #174c71;
+      --outline-variant: #cfd8df;
+
+      /* Accents */
+      --primary: #174c71;
+      --on-primary: #ffffff;
+      --primary-container: #f2b705;
+      --on-primary-container: #174c71;
+      --secondary: #174c71;
+      --tertiary: #6e4a07;
+      --tertiary-container: #f5ead2;
+      --error: #a6261b;
+      --on-error: #ffffff;
+
+      /* Data series */
+      --data-1: #174c71;
+      --data-2: #d99000;
+      --data-3: #2b6e52;
+      --data-4: #b84a39;
+      --data-context: #c2ccd4;
+
+      /* Semantic */
+      --positive: #1f5c42;
+      --positive-container: #e3f0ea;
+      --warning: #8a5600;
+      --focus: #f2b705;
+
+      /* Fonts */
+      --font-headline: 'Source Serif 4', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-label: 'Geist Mono', monospace;
+
+      /* Shape */
+      --rounded: 0.25rem;
+      --rounded-lg: 0.375rem;
+      --rounded-full: 0.25rem;
+
+      /* Style effects */
+      --section-rule: 1.5px solid var(--outline);
+      --card-border: 1px solid var(--outline-variant);
+      --badge-radius: 2px;
+      --heading-tracking: -0.02em;
+      --label-tracking: 0.08em;
+
+      /* Type scale (Narrative) */
+      --display-size: clamp(2rem, 1.35rem + 2.6vw, 3.125rem);
+      --headline-size: clamp(1.45rem, 1.15rem + 1.2vw, 2rem);
+      --subhead-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.375rem);
+      --body-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-xl);
+      padding: var(--space-lg);
+      max-width: 1040px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-headline);
+      color: var(--on-surface);
+      letter-spacing: var(--heading-tracking);
+      margin: 0;
+    }
+    p {
+      margin: 0;
+      max-width: 72ch;
+      color: var(--on-surface);
+    }
+    ul, ol {
+      margin: 0;
+      padding-left: var(--space-lg);
+      color: var(--on-surface);
+    }
+    li {
+      margin-bottom: var(--space-xs);
+      color: var(--on-surface);
+    }
+    li:last-child { margin-bottom: 0; }
+
+    /* KaTeX inherits primary font color */
+    .katex, .katex * {
+      color: var(--on-surface);
+    }
+
+    /* Dossier bar & masthead */
+    .masthead {
+      padding-top: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .dossier-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      border-bottom: var(--section-rule);
+      padding-bottom: var(--space-sm);
+    }
+    .dossier-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .dossier-pill {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: var(--label-tracking);
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--badge-radius);
+      display: inline-block;
+    }
+    .dossier-meta {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .title {
+      font-family: var(--font-headline);
+      font-size: var(--display-size);
+      font-weight: 600;
+      line-height: 1.08;
+      color: var(--on-surface);
+    }
+    .standfirst {
+      font-family: var(--font-body);
+      font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.2rem);
+      font-weight: 500;
+      color: var(--on-surface);
+      line-height: 1.5;
+      max-width: 70ch;
+    }
+
+    /* Summary stat strip */
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .figure-card {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .figure-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .figure-value {
+      font-family: var(--font-headline);
+      font-size: 1.625rem;
+      font-weight: 600;
+      line-height: 1.15;
+      font-variant-numeric: lining-nums tabular-nums;
+      color: var(--on-surface);
+    }
+    .figure-note {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Study controls bar */
+    .study-controls {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-md);
+    }
+    .controls-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .control-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--on-surface);
+    }
+    .segmented-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+    .btn {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      min-height: 44px;
+      padding: 0.5rem 0.95rem;
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline-variant);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      text-decoration: none;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .btn:hover {
+      background: var(--surface-container);
+      border-color: var(--outline);
+    }
+    .btn:active {
+      transform: translateY(1px);
+    }
+    .btn.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .btn.is-active:hover {
+      background: var(--primary);
+      opacity: 0.94;
+    }
+    .btn-sm {
+      min-height: 44px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.875rem;
+    }
+    .search-input {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--on-surface);
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      min-height: 44px;
+      padding: 0.5rem 0.75rem;
+      min-width: 240px;
+      width: 100%;
+      transition: border-color var(--dur-micro) var(--ease-out);
+    }
+    .search-input::placeholder {
+      color: var(--on-surface-variant);
+      opacity: 0.85;
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+    .controls-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding-top: var(--space-sm);
+      border-top: var(--card-border);
+    }
+    .jump-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .jump-link {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface);
+      background: var(--surface-container);
+      padding: 0.5rem 0.75rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: var(--rounded);
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .jump-link:hover {
+      background: var(--surface-container-high);
+      border-color: var(--outline-variant);
+    }
+    .progress-readout {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface);
+    }
+
+    /* Lecture section headers */
+    .lecture-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      padding-top: var(--space-md);
+    }
+    .section-heading {
+      font-size: var(--headline-size);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--on-surface);
+      margin-bottom: var(--space-xs);
+    }
+    .section-intro {
+      color: var(--on-surface-variant);
+      font-size: 0.96875rem;
+    }
+
+    /* Q&A cards */
+    .qa-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .qa-card {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      container-type: inline-size;
+      transition: border-color var(--dur-short) var(--ease-out);
+    }
+    .qa-card.is-reviewed {
+      border-left: 4px solid var(--positive);
+    }
+    .qa-card.is-hidden-filter {
+      display: none;
+    }
+    .qa-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+    .qa-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .index-num {
+      font-family: var(--font-label);
+      font-weight: 600;
+      font-size: var(--label-size);
+      color: var(--on-surface);
+      background: var(--surface-container);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--badge-radius);
+    }
+    .topic-tag {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--tertiary);
+      background: var(--tertiary-container);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--badge-radius);
+    }
+    .review-btn {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      min-height: 44px;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline-variant);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .review-btn:hover {
+      background: var(--surface-container);
+      border-color: var(--outline);
+    }
+    .review-btn[aria-pressed="true"] {
+      background: var(--positive-container);
+      border-color: var(--positive);
+      color: var(--positive);
+    }
+    .qa-question {
+      font-family: var(--font-headline);
+      font-size: var(--subhead-size);
+      font-weight: 600;
+      line-height: 1.28;
+      color: var(--on-surface);
+    }
+
+    /* Detailed & Bullet content blocks */
+    .qa-body {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .block-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+      display: block;
+    }
+    .answer-detailed {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .answer-bullets {
+      background: var(--surface-container);
+      border-top: var(--section-rule);
+      border-radius: var(--rounded);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .answer-bullets ul {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    /* Self-test reveal bar */
+    .reveal-panel {
+      display: none;
+      padding: var(--space-md);
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      border: 1px dashed var(--outline-variant);
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    body[data-mode="selftest"] .qa-card:not(.is-revealed) .qa-body {
+      display: none;
+    }
+    body[data-mode="selftest"] .qa-card .reveal-panel {
+      display: flex;
+    }
+    body[data-mode="rapid"] .answer-detailed {
+      display: none;
+    }
+
+    /* Embedded analytical callouts & schematics */
+    .formula-callout {
+      background: var(--surface-container);
+      border-left: 4px solid var(--primary);
+      padding: var(--space-md);
+      border-radius: 0 var(--rounded) var(--rounded) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .math-block {
+      display: block;
+      padding: var(--space-xs) 0;
+      overflow-x: auto;
+      font-family: var(--font-label);
+      font-weight: 600;
+    }
+    .math-expr {
+      font-weight: 600;
+    }
+
+    /* Comparison matrix for Q5 (Lecture 2) */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-sm);
+      margin-top: var(--space-xs);
+    }
+    .compare-cell {
+      background: var(--background);
+      border: var(--card-border);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .compare-dim {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    /* Schematic wrapper */
+    .schematic-box {
+      background: var(--background);
+      border: var(--card-border);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .schematic-caption {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      color: var(--on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .schematic-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Simpson Index interactive box inside L2 Q8 */
+    .simpson-calc {
+      background: var(--background);
+      border: var(--card-border);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .simpson-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      border-bottom: var(--card-border);
+      padding-bottom: var(--space-sm);
+    }
+    .simpson-inputs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(130px, 100%), 1fr));
+      gap: var(--space-sm);
+      align-items: end;
+    }
+    .parcel-field {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .parcel-input {
+      font-family: var(--font-label);
+      font-size: 0.9375rem;
+      color: var(--on-surface);
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      min-height: 44px;
+      padding: 0.4rem 0.6rem;
+      width: 100%;
+    }
+    .parcel-input:focus {
+      border-color: var(--primary);
+    }
+    .simpson-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+      gap: var(--space-sm);
+    }
+    .simpson-stat {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+    }
+    .simpson-stat-val {
+      font-family: var(--font-headline);
+      font-size: 1.375rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--on-surface);
+    }
+    .parcel-bar {
+      display: flex;
+      width: 100%;
+      height: 22px;
+      border-radius: var(--badge-radius);
+      overflow: hidden;
+      border: var(--card-border);
+      background: var(--surface-container);
+    }
+    .parcel-seg {
+      height: 100%;
+      transition: width var(--dur-short) var(--ease-out);
+    }
+    .seg-1 { background: var(--data-1); }
+    .seg-2 { background: var(--data-2); }
+    .seg-3 { background: var(--data-3); }
+    .seg-4 { background: var(--data-4); }
+
+    /* Tables (Lecture 1 Q5 Structural Matrix) */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: var(--card-border);
+      border-radius: var(--rounded);
+      background: var(--surface-container-low);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9375rem;
+      color: var(--on-surface);
+    }
+    thead th {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--on-surface);
+      background: var(--surface-container);
+      border-bottom: var(--section-rule);
+      padding: 0.75rem 0.9rem;
+    }
+    tbody td {
+      padding: 0.75rem 0.9rem;
+      border-bottom: var(--card-border);
+      vertical-align: top;
+      color: var(--on-surface);
+    }
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+    tbody tr:hover {
+      background: var(--background);
+    }
+
+    /* Pipeline diagram for L1 Q4 */
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+      gap: var(--space-sm);
+    }
+    .pipeline-step {
+      background: var(--background);
+      border: var(--card-border);
+      border-top: 3px solid var(--primary);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    /* Empty search state */
+    .empty-filter {
+      display: none;
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      text-align: left;
+    }
+    .empty-filter.is-visible {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    /* Footer */
+    .study-footer {
+      border-top: var(--section-rule);
+      padding-top: var(--space-md);
+      padding-bottom: var(--space-xl);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    /* Container & responsive breakpoints */
+    @container (max-width: 520px) {
+      .qa-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-lg);
+      }
+      .qa-card {
+        padding: var(--space-md);
+      }
+      .study-controls {
+        padding: var(--space-md);
+      }
+      .search-input {
+        min-width: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media print {
+      .study-controls, .review-btn, .reveal-panel, .simpson-controls-row {
+        display: none !important;
+      }
+      body[data-mode="selftest"] .qa-card .qa-body,
+      body[data-mode="rapid"] .answer-detailed {
+        display: flex !important;
+      }
+      .qa-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body data-mode="full">
+  <main class="page-grid">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="dossier-bar">
+        <div class="dossier-left">
+          <span class="dossier-pill">Exam Preparation Note</span>
+          <span class="dossier-meta">Agricultural Economics &middot; Lectures 2 &amp; 1 &middot; 14 Questions</span>
+        </div>
+        <span class="dossier-meta">Detailed Answers + Rapid Bullet Summaries</span>
+      </div>
+      <h1 class="title">Agricultural Economics: Exam Preparation Q&amp;A</h1>
+      <p class="standfirst">
+        Complete grounded solutions covering traditional agricultural regimes, Theodore Schultz’s efficiency hypothesis, polyculture and agroforestry case studies, land fragmentation calculations, microeconomic duality, institutional frictions, and Bangladesh’s agrarian-industrial transition.
+      </p>
+    </header>
+
+    <!-- Summary Metrics -->
+    <section class="summary-strip" aria-label="Study note overview">
+      <div class="figure-card">
+        <span class="figure-label">Lecture 2 Coverage</span>
+        <span class="figure-value">9 Questions</span>
+        <span class="figure-note">Traditional systems, Milpa, Basat &amp; Simpson Index</span>
+      </div>
+      <div class="figure-card">
+        <span class="figure-label">Lecture 1 Coverage</span>
+        <span class="figure-value">5 Questions</span>
+        <span class="figure-note">Duality, Bangladesh agro-ecology &amp; macro transition</span>
+      </div>
+      <div class="figure-card">
+        <span class="figure-label">Key Metric (L2 Q8)</span>
+        <span class="figure-value">71.5%</span>
+        <span class="figure-note">Fragmentation Index (1 &minus; SI = 0.715) on 2.0 ha</span>
+      </div>
+      <div class="figure-card">
+        <span class="figure-label">Bangladesh Intensity (L1 Q2)</span>
+        <span class="figure-value">179%</span>
+        <span class="figure-note">Cropping intensity amid 1% annual arable loss</span>
+      </div>
+    </section>
+
+    <!-- Study Controls -->
+    <section class="study-controls" aria-label="Study mode and navigation controls">
+      <div class="controls-top">
+        <div class="control-group">
+          <span class="control-label">Study Mode</span>
+          <div class="segmented-group" role="group" aria-label="Select study display mode">
+            <button type="button" class="btn is-active" id="mode-full" onclick="setStudyMode('full')">Full Notes</button>
+            <button type="button" class="btn" id="mode-rapid" onclick="setStudyMode('rapid')">Rapid Review (Bullets)</button>
+            <button type="button" class="btn" id="mode-selftest" onclick="setStudyMode('selftest')">Self-Test</button>
+          </div>
+        </div>
+        <div class="control-group">
+          <label for="search-qa" class="control-label">Filter Questions by Keyword</label>
+          <input type="search" id="search-qa" class="search-input" placeholder="e.g. Schultz, Milpa, Simpson, Barga" oninput="filterQuestions(this.value)">
+        </div>
+      </div>
+      <div class="controls-bottom">
+        <nav class="jump-links" aria-label="Lecture sections">
+          <a href="#lecture-2" class="jump-link">Lecture 2 (Q1&ndash;Q9)</a>
+          <a href="#lecture-1" class="jump-link">Lecture 1 (Q1&ndash;Q5)</a>
+        </nav>
+        <div class="progress-readout">
+          <span id="review-counter">Reviewed: 0 / 14</span>
+          <button type="button" class="btn btn-sm" id="reset-review-btn" onclick="resetReviewed(this)">Reset Progress</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Empty filter message -->
+    <div id="empty-filter-state" class="empty-filter" role="status">
+      <strong>No matching questions found.</strong>
+      <p>Your keyword filter did not match any question or solution in Lecture 1 or Lecture 2.</p>
+      <button type="button" class="btn btn-sm" onclick="clearSearchFilter()">Clear Filter</button>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- LECTURE 2 SOLUTIONS                                       -->
+    <!-- ========================================================= -->
+    <section id="lecture-2" class="lecture-section" aria-labelledby="lecture-2-heading">
+      <div class="dossier-bar">
+        <div class="dossier-left">
+          <span class="dossier-pill">Lecture 2</span>
+          <span class="dossier-meta">09 Questions &middot; Traditional Agriculture, Adaptation &amp; Land Fragmentation</span>
+        </div>
+      </div>
+      <div>
+        <h2 id="lecture-2-heading" class="section-heading">Lecture 2 Solutions: Traditional Farming Systems &amp; Spatial Dynamics</h2>
+        <p class="section-intro">Foundational economics of subsistence agriculture, Theodore Schultz’s allocative efficiency thesis, structural adaptation case studies, and quantitative fragmentation analysis.</p>
+      </div>
+
+      <div class="qa-list">
+
+        <!-- L2 Q1 -->
+        <article class="qa-card" id="l2-q1">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L2 &middot; Q01</span>
+              <span class="topic-tag">Core Definition</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 1: What fundamentally defines traditional agriculture?</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Recall the subsistence mandate, input base, and ecological alignment first.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <p>
+                Traditional agriculture is a subsistence-oriented farming regime that relies completely on historical, indigenous knowledge systems and localized ecosystem cycles. Its primary production mandate is meeting the immediate food security, caloric, and survival requirements of the farm homestead rather than producing for commercial market profit. It is characterized by low external capital dependency (near-zero reliance on synthetic fertilizers, combustion machinery, or laboratory seed strains) and deep ecological co-evolution with regional rainfall configurations and soil profiles.
+              </p>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>Subsistence Mandate:</strong> Prioritizes household food security and survival over commercial market profits.</li>
+                <li><strong>Low External Inputs:</strong> Near-zero dependency on synthetic chemicals, heavy machinery, or hybrid seeds.</li>
+                <li><strong>Indigenous &amp; Ecological Alignment:</strong> Calibrated directly to localized weather patterns, soil cycles, and legacy knowledge.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L2 Q2 -->
+        <article class="qa-card" id="l2-q2">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L2 &middot; Q02</span>
+              <span class="topic-tag">System Structure</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 2: How do capital investments, labor requirements, risk profiles, and structural properties shape traditional farming systems?</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Review all four pillars: capital, labor, risk behavior, and parcel structure.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <ul>
+                <li><strong>Capital Investments:</strong> Characterized by stagnant capital formation; tooling is restricted to elementary, manually operated implements designed and maintained by local craft loops.</li>
+                <li><strong>Labor Requirements:</strong> High labor saturation, where human somatic energy and draft animal traction function as the definitive power landscape.</li>
+                <li><strong>Risk Profiles:</strong> Smallholders exhibit risk-averse behavior matrices, structurally prioritizing multi-crop yield stability to prevent starvation over maximizing the financial return of a single cash crop.</li>
+                <li><strong>Structural Properties:</strong> Farms consist of highly subdivided, non-contiguous micro-parcels resulting from legacy patrilineal inheritance laws. They operate as closed-loop systems where livestock forage on crop residues and animal waste fertilizes crops.</li>
+              </ul>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>Capital:</strong> Stagnant capital using elementary manual tools from local craft loops.</li>
+                <li><strong>Labor:</strong> High labor saturation reliant on human work and draft animal power.</li>
+                <li><strong>Risk Profile:</strong> Risk-averse strategy prioritizing yield safety across multiple crops over cash profit.</li>
+                <li><strong>Structural:</strong> Subdivided/fragmented holdings operating through closed crop-livestock integration.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L2 Q3 -->
+        <article class="qa-card" id="l2-q3">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L2 &middot; Q03</span>
+              <span class="topic-tag">Schultz Hypothesis (1964)</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 3: Does the Theodore Schultz Hypothesis accurately explain resource allocation in traditional agriculture?</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Recall the "Poor but Efficient" thesis and marginal equilibrium condition.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <p>
+                Theodore Schultz’s &ldquo;Poor but Efficient&rdquo; hypothesis (1964) asserts that traditional smallholders are rational economic agents who evaluate margins accurately and allocate their scarce, legacy production factors with high allocative efficiency. Under marginal calculus, farmers operate where the Value Marginal Product of an input equals its market wage (<span class="math-expr" data-tex="VMP_x = P_q \cdot MP_x = W_x">VMP<sub>x</sub> = P<sub>q</sub> &middot; MP<sub>x</sub> = W<sub>x</sub></span>). However, output remains stagnant because marginal returns have plateaued under legacy techniques. Thus, while Schultz accurately explains that farmers are not irrational, traditional agriculture cannot escape poverty solely through internal resource reallocation; system transformation requires importing external, high-payoff modern technology.
+              </p>
+              <div class="formula-callout">
+                <span class="figure-label">Marginal Equilibrium Condition</span>
+                <span class="math-block math-expr" data-tex="VMP_x = P_q \cdot MP_x = W_x">VMP<sub>x</sub> = P<sub>q</sub> &middot; MP<sub>x</sub> = W<sub>x</sub></span>
+                <span class="figure-note">Efficiency within legacy constraints leaves output stagnant until high-payoff modern technology shifts the production curve.</span>
+              </div>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>&ldquo;Poor but Efficient&rdquo;:</strong> Smallholders allocate scarce legacy resources rationally near peak allocative efficiency (<span class="math-expr" data-tex="VMP_x = W_x">VMP<sub>x</sub> = W<sub>x</sub></span>).</li>
+                <li><strong>Production Ceiling:</strong> Yields remain stagnant because marginal returns have plateaued under legacy technology.</li>
+                <li><strong>Policy Takeaway:</strong> Reallocation alone cannot lift farms out of poverty; external high-payoff technology is required.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L2 Q4 -->
+        <article class="qa-card" id="l2-q4">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L2 &middot; Q04</span>
+              <span class="topic-tag">Economic Transformation</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 4: How do traditional agricultural systems adapt and transform over time within a developing economy?</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Recall the three development dynamics: Boserup, Vent-for-Surplus, and Value Chains.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <p>Traditional farming systems adapt and transform through three primary development dynamics:</p>
+              <ol>
+                <li><strong>Boserup Intensification Thesis:</strong> Population growth acts as an endogenous driver that compresses historical long-fallow periods, forcing transitions into labor-intensive annual multi-cropping.</li>
+                <li><strong>Vent-for-Surplus Strategy:</strong> Expanding institutional trade channels mobilizes underutilized land and household labor to produce a marketable economic surplus.</li>
+                <li><strong>Gradual Value Chain Integration:</strong> Farming evolves from pure isolationist subsistence to semi-commercial buffer selling, and eventually full integration within regional output markets.</li>
+              </ol>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>Boserup Intensification:</strong> Population pressure forces higher cropping frequency and intensive labor deployment.</li>
+                <li><strong>Vent-for-Surplus:</strong> Trade access draws unused family labor and land into generating market surpluses.</li>
+                <li><strong>Value Chain Integration:</strong> Evolutionary transition from isolationist food growing to market-driven sales.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L2 Q5 -->
+        <article class="qa-card" id="l2-q5">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L2 &middot; Q05</span>
+              <span class="topic-tag">Regime Comparison</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 5: How do traditional agricultural methods compare to modern industrial farming regimes?</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Contrast across paradigm, energy, biodiversity, capital, and environmental footprint.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <p>Traditional and modern industrial systems contrast across five core dimensions:</p>
+              <div class="compare-grid">
+                <div class="compare-cell">
+                  <span class="compare-dim">1. Primary Paradigm</span>
+                  <p>Household subsistence &amp; risk minimization <strong>vs.</strong> Capital accumulation, margin capture &amp; yield maximization.</p>
+                </div>
+                <div class="compare-cell">
+                  <span class="compare-dim">2. Energy Base</span>
+                  <p>Human labor, draft animals, localized solar loops <strong>vs.</strong> Petrochemical fuels, automated internal combustion machinery.</p>
+                </div>
+                <div class="compare-cell">
+                  <span class="compare-dim">3. Biodiversity</span>
+                  <p>High agrobiodiversity (polycultures, landraces) <strong>vs.</strong> Low agrobiodiversity (monocultures, hybrid/GMO strains).</p>
+                </div>
+                <div class="compare-cell">
+                  <span class="compare-dim">4. Capital Deployment</span>
+                  <p>Low financial capital, high localized fixed labor <strong>vs.</strong> High commercial capital (chemical, seed, mechanical).</p>
+                </div>
+                <div class="compare-cell">
+                  <span class="compare-dim">5. Environmental Footprint</span>
+                  <p>Minimal synthetic residue with risk of soil fatigue <strong>vs.</strong> Heavy fossil footprint with risk of structural aquifer depletion.</p>
+                </div>
+              </div>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>Objective:</strong> Household risk safety vs. Commercial yield and profit maximization.</li>
+                <li><strong>Energy/Inputs:</strong> Somatic human/animal energy vs. Fossil fuels and synthetic chemicals.</li>
+                <li><strong>Ecology:</strong> Multi-species polycultures vs. Large-scale monoculture specialization.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L2 Q6 -->
+        <article class="qa-card" id="l2-q6">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L2 &middot; Q06</span>
+              <span class="topic-tag">Case Study &middot; Polyculture</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 6: Develop a Case study on multi-millennial polyculture strategy as structural adaptation of traditional agriculture.</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Explain the Mesoamerican Milpa (&ldquo;Three Sisters&rdquo;) symbiotic architecture.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <p><strong>Case Study: The Mesoamerican Milpa System (&ldquo;Three Sisters&rdquo;).</strong></p>
+              <ul>
+                <li><strong>Concept:</strong> A multi-millennial polyculture strategy intercropping Maize, Climbing Beans, and Ground-spreading Squash concurrently on the same physical plot.</li>
+                <li><strong>Symbiotic Architecture:</strong>
+                  <ol>
+                    <li><em>Maize:</em> Grows vertically, serving as a resilient structural trellis for climbing bean vines.</li>
+                    <li><em>Beans:</em> Host specialized <em>Rhizobium</em> colonies in root nodules that fix airborne nitrogen into the topsoil.</li>
+                    <li><em>Squash:</em> Spreads dense broad-leaf foliage across the soil as a living mulch, preserving moisture and choking out weeds.</li>
+                  </ol>
+                </li>
+                <li><strong>Economic Adaptation:</strong> Optimizes multi-tier caloric production per square meter without incurring variable costs for external chemical inputs.</li>
+              </ul>
+
+              <div class="schematic-box">
+                <span class="schematic-caption">Symbiotic Architecture: Mesoamerican Milpa (&ldquo;Three Sisters&rdquo;)</span>
+                <svg class="schematic-svg" viewBox="0 0 680 190" role="img" aria-label="Diagram of Mesoamerican Milpa showing Maize trellis, Climbing Beans fixing nitrogen, and Squash living mulch" aria-hidden="false">
+                  <rect x="0" y="138" width="680" height="52" fill="var(--surface-container)" rx="3"/>
+                  <line x1="0" y1="138" x2="680" y2="138" stroke="var(--outline)" stroke-width="1.5"/>
+
+                  <!-- Maize stalk -->
+                  <line x1="160" y1="138" x2="160" y2="26" stroke="var(--data-1)" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M160 72 Q125 60 112 78 Q138 82 160 78" fill="var(--data-3)"/>
+                  <path d="M160 54 Q195 42 208 60 Q182 64 160 60" fill="var(--data-3)"/>
+                  <rect x="20" y="20" width="215" height="44" fill="var(--surface-container-low)" stroke="var(--outline-variant)" rx="3"/>
+                  <text x="30" y="38" font-family="Geist Mono, monospace" font-size="11" font-weight="600" fill="var(--on-surface)">1. MAIZE (VERTICAL TRELLIS)</text>
+                  <text x="30" y="54" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="var(--on-surface-variant)">Resilient stalk supports bean vines</text>
+
+                  <!-- Climbing Beans -->
+                  <path d="M160 136 Q180 118 152 100 Q135 84 166 64 Q182 48 160 34" fill="none" stroke="var(--data-2)" stroke-width="3" stroke-dasharray="5 3"/>
+                  <circle cx="152" cy="156" r="4" fill="var(--data-2)"/>
+                  <circle cx="168" cy="162" r="4" fill="var(--data-2)"/>
+                  <circle cx="144" cy="168" r="4" fill="var(--data-2)"/>
+                  <rect x="250" y="66" width="210" height="54" fill="var(--surface-container-low)" stroke="var(--outline-variant)" rx="3"/>
+                  <text x="260" y="84" font-family="Geist Mono, monospace" font-size="11" font-weight="600" fill="var(--on-surface)">2. CLIMBING BEANS (N2 FIXER)</text>
+                  <text x="260" y="100" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="var(--on-surface-variant)">Rhizobium nodules enrich topsoil</text>
+                  <text x="260" y="114" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="var(--on-surface-variant)">with airborne nitrogen</text>
+
+                  <!-- Squash living mulch -->
+                  <ellipse cx="485" cy="130" rx="68" ry="12" fill="var(--data-3)" opacity="0.85"/>
+                  <ellipse cx="565" cy="132" rx="54" ry="10" fill="var(--data-3)" opacity="0.65"/>
+                  <rect x="475" y="18" width="190" height="54" fill="var(--surface-container-low)" stroke="var(--outline-variant)" rx="3"/>
+                  <text x="485" y="36" font-family="Geist Mono, monospace" font-size="11" font-weight="600" fill="var(--on-surface)">3. SQUASH (LIVING MULCH)</text>
+                  <text x="485" y="52" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="var(--on-surface-variant)">Broad leaves retain moisture</text>
+                  <text x="485" y="66" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="var(--on-surface-variant)">and suppress weed growth</text>
+
+                  <text x="16" y="176" font-family="Geist Mono, monospace" font-size="11" font-weight="600" fill="var(--on-surface)">ZERO-CHEMICAL MULTI-TIER CALORIC OPTIMIZATION PER SQUARE METER</text>
+                </svg>
+              </div>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>System:</strong> Mesoamerican <em>Milpa</em> combining Maize, Climbing Beans, and Squash.</li>
+                <li><strong>Symbiosis:</strong> Maize provides physical support, beans supply soil nitrogen, and squash acts as living weed-suppressing mulch.</li>
+                <li><strong>Economic Value:</strong> High caloric output per area without requiring synthetic chemical purchases.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L2 Q7 -->
+        <article class="qa-card" id="l2-q7">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L2 &middot; Q07</span>
+              <span class="topic-tag">Case Study &middot; Bangladesh</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 7: Show Bangladesh case on environmental adaptation for sustainable traditional agriculture.</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Recall the Basat home garden system and its three stratified canopy layers.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <p><strong>Case Study: Bangladeshi Home Gardens (The Basat System).</strong></p>
+              <ul>
+                <li><strong>Concept:</strong> Structural, multi-tiered homestead agroforestry frameworks engineered across rural Bangladesh as an ecological adaptation.</li>
+                <li><strong>Stratified Ecological Layering:</strong>
+                  <ol>
+                    <li><em>Upper Canopy:</em> Long-cycle woody and fruit assets (Coconut, Mango, Jackfruit) acting as long-horizon capital reserves.</li>
+                    <li><em>Midstory Canopy:</em> Medium-stature woody cultivars (Guava, Citrus, Banana).</li>
+                    <li><em>Herbaceous Floor:</em> Shade-tolerant understory crops (Turmeric, Ginger, Taro) paired with micro-scale poultry.</li>
+                  </ol>
+                </li>
+                <li><strong>Economic &amp; Ecological Function:</strong> Generates consistent, counter-cyclical micro-revenues and essential micro-nutrients, shielding families against macro crop stress in open rice acreage.</li>
+              </ul>
+
+              <div class="schematic-box">
+                <span class="schematic-caption">Stratified Canopy Profile: Bangladeshi Basat Home Garden</span>
+                <svg class="schematic-svg" viewBox="0 0 680 185" role="img" aria-label="Three-tier ecological layering of the Bangladeshi Basat homestead agroforestry system">
+                  <!-- Three horizontal canopy bands -->
+                  <rect x="16" y="14" width="648" height="46" rx="4" fill="var(--surface-container-low)" stroke="var(--data-1)" stroke-width="1.5"/>
+                  <rect x="16" y="68" width="648" height="46" rx="4" fill="var(--surface-container-low)" stroke="var(--data-3)" stroke-width="1.5"/>
+                  <rect x="16" y="122" width="648" height="46" rx="4" fill="var(--surface-container)" stroke="var(--data-2)" stroke-width="1.5"/>
+
+                  <text x="32" y="34" font-family="Geist Mono, monospace" font-size="11" font-weight="600" fill="var(--on-surface)">TIER 1 &middot; UPPER CANOPY</text>
+                  <text x="32" y="50" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="var(--on-surface)">Coconut, Mango, Jackfruit &mdash; long-cycle woody assets &amp; capital reserves</text>
+
+                  <text x="32" y="88" font-family="Geist Mono, monospace" font-size="11" font-weight="600" fill="var(--on-surface)">TIER 2 &middot; MIDSTORY CANOPY</text>
+                  <text x="32" y="104" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="var(--on-surface)">Guava, Citrus, Banana &mdash; medium-stature fruit cultivars</text>
+
+                  <text x="32" y="142" font-family="Geist Mono, monospace" font-size="11" font-weight="600" fill="var(--on-surface)">TIER 3 &middot; HERBACEOUS FLOOR &amp; LIVESTOCK</text>
+                  <text x="32" y="158" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="var(--on-surface)">Shade-tolerant Turmeric, Ginger, Taro + micro-scale poultry</text>
+                </svg>
+              </div>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>System:</strong> <em>Basat</em> multi-tiered homestead agroforestry in rural Bangladesh.</li>
+                <li><strong>Structure:</strong> Multi-canopy layering combining timber trees, fruit crops, shade vegetables, and livestock.</li>
+                <li><strong>Function:</strong> Provides steady year-round income and nutrition, buffering households against weather shocks in main fields.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L2 Q8 -->
+        <article class="qa-card" id="l2-q8">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L2 &middot; Q08</span>
+              <span class="topic-tag">Quantitative Metric</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 8: Identify the Land fragmentation impact on traditional agriculture &mdash; Use also numerical calculations.</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Recall the insurance vs. efficiency trade-off and the 4-step Simpson Index proof.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <ul>
+                <li><strong>Impacts:</strong>
+                  <ul>
+                    <li><em>Microeconomic Insurance (Positive):</em> Spatial division acts as a localized environmental hedge against natural disasters (e.g., a flash flood destroying a basin plot leaves an upland plot intact).</li>
+                    <li><em>Efficiency Drain (Negative):</em> Multiplies unproductive travel time for draft teams and tools, destroys economies of scale, raises fuel costs, and wastes land along plot borders.</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <div class="formula-callout">
+                <span class="figure-label">Numerical Calculation (Simpson Index of Fragmentation)</span>
+                <p><strong>Given Data:</strong> Total area <span class="math-expr" data-tex="A = 2.0\text{ ha}">A = 2.0 ha</span> distributed across 4 parcels: <span class="math-expr" data-tex="a_1 = 0.3\text{ ha}">a<sub>1</sub> = 0.3 ha</span>, <span class="math-expr" data-tex="a_2 = 0.8\text{ ha}">a<sub>2</sub> = 0.8 ha</span>, <span class="math-expr" data-tex="a_3 = 0.4\text{ ha}">a<sub>3</sub> = 0.4 ha</span>, <span class="math-expr" data-tex="a_4 = 0.5\text{ ha}">a<sub>4</sub> = 0.5 ha</span>.</p>
+                <p><strong>Step 1 (Sum of Squared Areas):</strong> <span class="math-block math-expr" data-tex="(0.3)^2 + (0.8)^2 + (0.4)^2 + (0.5)^2 = 0.09 + 0.64 + 0.16 + 0.25 = 1.14">(0.3)&sup2; + (0.8)&sup2; + (0.4)&sup2; + (0.5)&sup2; = 0.09 + 0.64 + 0.16 + 0.25 = 1.14</span></p>
+                <p><strong>Step 2 (Squared Total Area):</strong> <span class="math-block math-expr" data-tex="A^2 = (2.0)^2 = 4.00">A&sup2; = (2.0)&sup2; = 4.00</span></p>
+                <p><strong>Step 3 (Simpson Index of Consolidation, SI):</strong> <span class="math-block math-expr" data-tex="SI = \frac{1.14}{4.00} = 0.285">SI = 1.14 / 4.00 = 0.285</span></p>
+                <p><strong>Step 4 (Index of Fragmentation, 1 &minus; SI):</strong> <span class="math-block math-expr" data-tex="\text{Fragmentation Index} = 1 - 0.285 = \mathbf{0.715}\quad (\text{or } \mathbf{71.5\%})">Fragmentation Index = 1 &minus; 0.285 = 0.715 (or 71.5%)</span></p>
+                <p><strong>Economic Takeaway:</strong> A score of <span class="math-expr" data-tex="71.5\%">71.5%</span> confirms intense parcel dispersal; high environmental risk protection is purchased at the cost of high travel friction and lost efficiency.</p>
+              </div>
+
+              <!-- Interactive Simpson Index Explorer -->
+              <div class="simpson-calc" aria-label="Interactive Simpson Fragmentation Index explorer">
+                <div class="simpson-header">
+                  <div>
+                    <span class="figure-label">Interactive Practice Calculator</span>
+                    <div class="figure-note">Adjust parcel areas (ha) to verify how consolidation changes the Fragmentation Index.</div>
+                  </div>
+                  <div class="segmented-group simpson-controls-row">
+                    <button type="button" class="btn btn-sm" onclick="loadSimpsonPreset('exam')">Exam Baseline (2.0 ha)</button>
+                    <button type="button" class="btn btn-sm" onclick="loadSimpsonPreset('consolidated')">Consolidated (1 Plot)</button>
+                    <button type="button" class="btn btn-sm" onclick="loadSimpsonPreset('even')">4 Equal Plots</button>
+                  </div>
+                </div>
+                <div class="simpson-inputs">
+                  <div class="parcel-field">
+                    <label for="parcel-a1" class="control-label">Parcel a1 (ha)</label>
+                    <input type="number" id="parcel-a1" class="parcel-input" step="0.1" min="0" value="0.3" oninput="updateSimpsonCalc()">
+                  </div>
+                  <div class="parcel-field">
+                    <label for="parcel-a2" class="control-label">Parcel a2 (ha)</label>
+                    <input type="number" id="parcel-a2" class="parcel-input" step="0.1" min="0" value="0.8" oninput="updateSimpsonCalc()">
+                  </div>
+                  <div class="parcel-field">
+                    <label for="parcel-a3" class="control-label">Parcel a3 (ha)</label>
+                    <input type="number" id="parcel-a3" class="parcel-input" step="0.1" min="0" value="0.4" oninput="updateSimpsonCalc()">
+                  </div>
+                  <div class="parcel-field">
+                    <label for="parcel-a4" class="control-label">Parcel a4 (ha)</label>
+                    <input type="number" id="parcel-a4" class="parcel-input" step="0.1" min="0" value="0.5" oninput="updateSimpsonCalc()">
+                  </div>
+                </div>
+                <div class="parcel-bar" aria-hidden="true">
+                  <div class="parcel-seg seg-1" id="bar-a1" style="width: 15%"></div>
+                  <div class="parcel-seg seg-2" id="bar-a2" style="width: 40%"></div>
+                  <div class="parcel-seg seg-3" id="bar-a3" style="width: 20%"></div>
+                  <div class="parcel-seg seg-4" id="bar-a4" style="width: 25%"></div>
+                </div>
+                <div class="simpson-results">
+                  <div class="simpson-stat">
+                    <span class="figure-label">Total Area (A)</span>
+                    <div class="simpson-stat-val" id="calc-total">2.00 ha</div>
+                  </div>
+                  <div class="simpson-stat">
+                    <span class="figure-label">Sum of Squares (&Sigma;a&sup2;)</span>
+                    <div class="simpson-stat-val" id="calc-sumsq">1.140</div>
+                  </div>
+                  <div class="simpson-stat">
+                    <span class="figure-label">Consolidation (SI)</span>
+                    <div class="simpson-stat-val" id="calc-si">0.285</div>
+                  </div>
+                  <div class="simpson-stat">
+                    <span class="figure-label">Fragmentation (1 &minus; SI)</span>
+                    <div class="simpson-stat-val" id="calc-fi">0.715 (71.5%)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>Trade-off:</strong> Environmental risk insurance vs. severe travel friction and loss of scale economies.</li>
+                <li><strong>Calculated Metrics:</strong> <span class="math-expr" data-tex="SI = 0.285">SI = 0.285</span>, resulting in a <strong>Fragmentation Index of 0.715 (71.5%)</strong>.</li>
+                <li><strong>Takeaway:</strong> High spatial dispersal protects against localized shocks but imposes significant operational costs.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L2 Q9 -->
+        <article class="qa-card" id="l2-q9">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L2 &middot; Q09</span>
+              <span class="topic-tag">Spatial Policy</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 9: What insights do the urban planners and geographers get from land fragmentation?</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Connect fragmentation indices to urban sprawl, ecosystems, and zoning.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <ul>
+                <li><strong>Quantifying Urban Sprawl:</strong> Planners use fragmentation indices on satellite imagery to track how highway construction, suburban expansion, and residential zoning slice contiguous farmland into isolated patches.</li>
+                <li><strong>Ecosystem Service Health:</strong> Geographers analyze high fragmentation scores to measure broken wildlife corridors, accelerated edge-effect degradation, soil fatigue, and aquifer depletion.</li>
+                <li><strong>Agricultural Economics &amp; Zoning:</strong> Identifies areas where farm sizes are becoming unviable, guiding land consolidation laws and regional agricultural zoning.</li>
+              </ul>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>Sprawl Tracking:</strong> Quantifies how urban growth and infrastructure break up contiguous agricultural land.</li>
+                <li><strong>Ecological Protection:</strong> Maps habitat destruction, wildlife corridor breaks, and topsoil/water degradation.</li>
+                <li><strong>Zoning Guidance:</strong> Helps governments design land consolidation policies to protect farm viability.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- LECTURE 1 SOLUTIONS                                       -->
+    <!-- ========================================================= -->
+    <section id="lecture-1" class="lecture-section" aria-labelledby="lecture-1-heading">
+      <div class="dossier-bar">
+        <div class="dossier-left">
+          <span class="dossier-pill">Lecture 1</span>
+          <span class="dossier-meta">05 Questions &middot; Microeconomic Duality, Institutions &amp; Structural Transformation</span>
+        </div>
+      </div>
+      <div>
+        <h2 id="lecture-1-heading" class="section-heading">Lecture 1 Solutions: Microeconomic Duality, Institutions &amp; Macro Synthesis</h2>
+        <p class="section-intro">Household production-consumption duality, Bangladesh’s agro-ecological land realities, tenancy and credit frictions, and the agrarian-industrial transition matrix.</p>
+      </div>
+
+      <div class="qa-list">
+
+        <!-- L1 Q1 -->
+        <article class="qa-card" id="l1-q1">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L1 &middot; Q01</span>
+              <span class="topic-tag">Microeconomics</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 1: What do you understand by microeconomic duality in agriculture? Explain.</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Explain how the smallholder acts simultaneously as consumer and producer.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <p>
+                Standard microeconomics treats consumers and firm producers as separate economic entities. In agricultural economics, <strong>microeconomic duality</strong> describes how a smallholder peasant household functions simultaneously as both a consuming unit and a producing firm. The household optimizes local inputs internally under strict survival constraints (&ldquo;poor but efficient&rdquo;) while balancing family food consumption against the amount of crop surplus sold to the market.
+              </p>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>Dual Role:</strong> Peasant households operate concurrently as producing firms and consuming families.</li>
+                <li><strong>Surplus Balancing:</strong> Constantly weighs immediate home consumption against marketed crop surplus.</li>
+                <li><strong>Internal Optimization:</strong> Optimizes resource use under strict survival constraints.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L1 Q2 -->
+        <article class="qa-card" id="l1-q2">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L1 &middot; Q02</span>
+              <span class="topic-tag">Land &amp; Agro-Ecology</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 2: Define the land dynamics and Agro-Ecological realities in Bangladesh.</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Connect Ricardian rent and Von Th&uuml;nen distance to Bangladesh’s 1% land loss and 179% intensity.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <ul>
+                <li><strong>Ricardian Rent &amp; Supply:</strong> Land has a fixed biological supply and heterogeneous fertility, creating classic differential economic rent structures.</li>
+                <li><strong>Von Th&uuml;nen Spatial Intensity:</strong> Distance to urban markets dictates crop choices; perishable goods anchor near cities, while grains sit further out.</li>
+                <li><strong>Bangladesh Reality:</strong> Arable land shrinks by 1% annually due to urban expansion, yet cropping intensity has reached 179% across contrasting ecological zones&mdash;from tube-well irrigated Barind tracts to flood-prone Haor flash-flood basins.</li>
+              </ul>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>Shrinking Arable Land:</strong> Arable footprint contracts by 1% annually due to urbanization.</li>
+                <li><strong>High Cropping Intensity:</strong> Reached 179% across diverse ecological settings (Barind vs. Haor).</li>
+                <li><strong>Differential Rent &amp; Distance:</strong> Soil quality and urban market distance dictate land values and cropping choices.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L1 Q3 -->
+        <article class="qa-card" id="l1-q3">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L1 &middot; Q03</span>
+              <span class="topic-tag">Institutional Economics</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 3: Define the institutional factors that influence agricultural production.</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Cover Barga vs. Kuth tenancy contracts, Mohajon credit frictions, and Faria-Bepari chains.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <p>Institutional factors are the formal and informal rules, legal frameworks, and organizational networks that govern how agricultural markets operate. Key examples include:</p>
+              <ol>
+                <li><strong>Land Tenure Contracts:</strong>
+                  <ul>
+                    <li><em>Traditional Sharecropping (Barga):</em> Tenant pays 100% of input costs but receives only 50% of output (Marshallian Inefficiency), creating disincentives for modern tech adoption.</li>
+                    <li><em>Fixed Cash Leases (Kuth):</em> Tenant pays a fixed fee and keeps 100% of marginal returns, driving productivity.</li>
+                  </ul>
+                </li>
+                <li><strong>Credit Frictions:</strong> Informal moneylenders (<em>Mohajons</em>) exploit lack of collateral with high interest rates, driving post-harvest distress sales, compared to state/mobile credit interventions.</li>
+                <li><strong>Market Intermediaries:</strong> Multi-tiered <em>Faria-Bepari</em> supply chains compress farmer profit margins due to lack of local storage.</li>
+              </ol>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>Definition:</strong> Legal rules, property structures, and market networks governing farming transactions.</li>
+                <li><strong>Tenancy Disincentives:</strong> Sharecropping (<em>Barga</em>) reduces tech investment vs. fixed leasing (<em>Kuth</em>) which rewards productivity.</li>
+                <li><strong>Market Frictions:</strong> Informal credit traps (<em>Mohajons</em>) and middleman chains (<em>Faria-Bepari</em>) compress net farm income.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L1 Q4 -->
+        <article class="qa-card" id="l1-q4">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L1 &middot; Q04</span>
+              <span class="topic-tag">Macro Synthesis</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 4: Define the macro synthesis of agricultural structural transformation.</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Recall the 4-stage engine leading from physical boundaries to industrial takeoff.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <p>The macro synthesis conceptualizes agriculture as the fundamental catalyst driving national structural transformation through a 4-stage engine:</p>
+              <div class="pipeline-grid">
+                <div class="pipeline-step">
+                  <span class="figure-label">Stage 01</span>
+                  <strong>Physical Boundary</strong>
+                  <p>Fixed land limits and ecological exposure outline initial baseline capacity.</p>
+                </div>
+                <div class="pipeline-step">
+                  <span class="figure-label">Stage 02</span>
+                  <strong>Institutional Rules</strong>
+                  <p>Secure land leasing and credit frameworks enable modern technology adoption.</p>
+                </div>
+                <div class="pipeline-step">
+                  <span class="figure-label">Stage 03</span>
+                  <strong>Stabilizing Shocks</strong>
+                  <p>Government price floors and state R&amp;D overcome low-efficiency traps.</p>
+                </div>
+                <div class="pipeline-step">
+                  <span class="figure-label">Stage 04</span>
+                  <strong>Final Takeoff</strong>
+                  <p>Agriculture releases surplus labor and marketed food crops, fueling national industrial expansion.</p>
+                </div>
+              </div>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>4-Stage Pipeline:</strong> Physical limits <span class="math-expr" data-tex="\rightarrow">&rarr;</span> Institutional rules <span class="math-expr" data-tex="\rightarrow">&rarr;</span> Price stabilization <span class="math-expr" data-tex="\rightarrow">&rarr;</span> Industrial takeoff.</li>
+                <li><strong>Catalytic Engine:</strong> Supplies food, capital, and labor necessary to build industrial capacity.</li>
+                <li><strong>Balanced Growth:</strong> Requires public research and market cushions to succeed.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- L1 Q5 -->
+        <article class="qa-card" id="l1-q5">
+          <div class="qa-header">
+            <div class="qa-meta-row">
+              <span class="index-num">L1 &middot; Q05</span>
+              <span class="topic-tag">Structural Matrix</span>
+            </div>
+            <button type="button" class="review-btn" aria-pressed="false" onclick="toggleReviewed(this)">Mark Reviewed</button>
+          </div>
+          <h3 class="qa-question">Question 5: Develop the structural matrix of Agrarian-industrial transition.</h3>
+          <div class="reveal-panel">
+            <span class="dossier-meta">Compare Classical Theory, Institutional Frictions, and Bangladesh Reality across 5 pillars.</span>
+            <button type="button" class="btn btn-sm" onclick="toggleCardReveal(this)">Reveal Solution</button>
+          </div>
+          <div class="qa-body">
+            <div class="answer-detailed">
+              <span class="block-label">Detailed Answer</span>
+              <p>The structural matrix contrasts classical economic models, real-world institutional frictions, and Bangladesh’s empirical experience across key economic pillars:</p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col">Core Pillar</th>
+                      <th scope="col">Classical Economic Theory</th>
+                      <th scope="col">Institutional Frictions</th>
+                      <th scope="col">Bangladesh Reality</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>GVA Share</strong></td>
+                      <td>Declines as labor shifts to manufacturing.</td>
+                      <td>Reallocation slowed by structural barriers.</td>
+                      <td>Fallen to ~11%, yet remains a vital economic anchor.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Labor Elasticity</strong></td>
+                      <td>Surplus rural labor shifts seamlessly.</td>
+                      <td>Job matching frictions trap informal labor.</td>
+                      <td>Absorbs &gt;44% of workers; structural lag.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Tenancy</strong></td>
+                      <td>Sharecropping induces output inefficiencies.</td>
+                      <td>Risk aversion keeps sharing structures alive.</td>
+                      <td>Fixed cash leases (<em>Kuth</em>) rapidly replacing <em>Barga</em>.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Credit Access</strong></td>
+                      <td>Capital flows freely based on return curves.</td>
+                      <td>Collateral locks block formal banks.</td>
+                      <td>Microfinance and local brokers dominate lending.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Price Terms</strong></td>
+                      <td>Market forces clear signals flawlessly.</td>
+                      <td>Ceilings trigger heavy rent-seeking loops.</td>
+                      <td>Targeted food cards protect urban/rural poor.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="answer-bullets">
+              <span class="block-label">Key Bullet Points</span>
+              <ul>
+                <li><strong>GVA vs. Employment Mismatch:</strong> Agriculture generates ~11% of GDP but still absorbs &gt;44% of national labor.</li>
+                <li><strong>Tenancy Evolution:</strong> Rapid structural transition from inefficient <em>Barga</em> to high-yield fixed <em>Kuth</em> leasing.</li>
+                <li><strong>Frictional Delays:</strong> Informal credit constraints and job matching frictions slow down classical labor reallocation.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <footer class="study-footer">
+      <span>Agricultural Economics Exam Preparation Note &middot; Grounded on Lectures 1 &amp; 2</span>
+      <span>Primary Ink: #174c71 &middot; 14 Questions Complete</span>
+    </footer>
+
+  </main>
+
+  <script>
+    // Render KaTeX equations once katex library finishes loading
+    function renderAllMath() {
+      if (typeof window.katex === 'undefined') return;
+      var nodes = document.querySelectorAll('.math-expr');
+      for (var i = 0; i < nodes.length; i++) {
+        var el = nodes[i];
+        var tex = el.getAttribute('data-tex');
+        if (!tex) continue;
+        try {
+          window.katex.render(tex, el, {
+            displayMode: el.classList.contains('math-block'),
+            throwOnError: false
+          });
+        } catch (err) {
+          // Keep plain HTML fallback text intact on parse error
+        }
+      }
+    }
+
+    window.addEventListener('load', renderAllMath);
+
+    function setStudyMode(mode) {
+      var body = document.body;
+      if (!body) return;
+      body.setAttribute('data-mode', mode);
+
+      var modes = ['full', 'rapid', 'selftest'];
+      for (var i = 0; i < modes.length; i++) {
+        var btn = document.getElementById('mode-' + modes[i]);
+        if (btn) {
+          if (modes[i] === mode) {
+            btn.classList.add('is-active');
+          } else {
+            btn.classList.remove('is-active');
+          }
+        }
+      }
+
+      // Reset temporary reveals when entering self-test mode
+      if (mode === 'selftest') {
+        var cards = document.querySelectorAll('.qa-card');
+        for (var j = 0; j < cards.length; j++) {
+          cards[j].classList.remove('is-revealed');
+          var revealBtn = cards[j].querySelector('.reveal-panel button');
+          if (revealBtn) revealBtn.textContent = `Reveal Solution`;
+        }
+      }
+    }
+
+    function toggleCardReveal(btn) {
+      if (!btn) return;
+      var card = btn.closest('.qa-card');
+      if (!card) return;
+      var revealed = card.classList.toggle('is-revealed');
+      btn.textContent = revealed ? `Hide Solution` : `Reveal Solution`;
+    }
+
+    function updateReviewCount() {
+      var counter = document.getElementById('review-counter');
+      if (!counter) return;
+      var total = document.querySelectorAll('.qa-card').length;
+      var reviewed = document.querySelectorAll('.qa-card.is-reviewed').length;
+      counter.textContent = `Reviewed: ` + reviewed + ` / ` + total;
+    }
+
+    function toggleReviewed(btn) {
+      if (!btn) return;
+      var card = btn.closest('.qa-card');
+      if (!card) return;
+      var isNow = card.classList.toggle('is-reviewed');
+      btn.setAttribute('aria-pressed', isNow ? `true` : `false`);
+      btn.textContent = isNow ? `Reviewed` : `Mark Reviewed`;
+      updateReviewCount();
+    }
+
+    function resetReviewed(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.textContent = `Confirm Reset`;
+        return;
+      }
+      btn.dataset.armed = 'false';
+      btn.textContent = `Reset Progress`;
+      var cards = document.querySelectorAll('.qa-card');
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.remove('is-reviewed');
+        var revBtn = cards[i].querySelector('.review-btn');
+        if (revBtn) {
+          revBtn.setAttribute('aria-pressed', `false`);
+          revBtn.textContent = `Mark Reviewed`;
+        }
+      }
+      updateReviewCount();
+    }
+
+    function filterQuestions(query) {
+      var term = (query || '').trim().toLowerCase();
+      var cards = document.querySelectorAll('.qa-card');
+      var visibleCount = 0;
+
+      for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        var text = (card.textContent || '').toLowerCase();
+        if (!term || text.indexOf(term) !== -1) {
+          card.classList.remove('is-hidden-filter');
+          visibleCount++;
+        } else {
+          card.classList.add('is-hidden-filter');
+        }
+      }
+
+      var emptyState = document.getElementById('empty-filter-state');
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.add('is-visible');
+        } else {
+          emptyState.classList.remove('is-visible');
+        }
+      }
+    }
+
+    function clearSearchFilter() {
+      var input = document.getElementById('search-qa');
+      if (input) input.value = ``;
+      filterQuestions('');
+    }
+
+    function loadSimpsonPreset(preset) {
+      var a1 = document.getElementById('parcel-a1');
+      var a2 = document.getElementById('parcel-a2');
+      var a3 = document.getElementById('parcel-a3');
+      var a4 = document.getElementById('parcel-a4');
+      if (!a1 || !a2 || !a3 || !a4) return;
+
+      if (preset === 'exam') {
+        a1.value = 0.3;
+        a2.value = 0.8;
+        a3.value = 0.4;
+        a4.value = 0.5;
+      } else if (preset === 'consolidated') {
+        a1.value = 2.0;
+        a2.value = 0;
+        a3.value = 0;
+        a4.value = 0;
+      } else if (preset === 'even') {
+        a1.value = 0.5;
+        a2.value = 0.5;
+        a3.value = 0.5;
+        a4.value = 0.5;
+      }
+      updateSimpsonCalc();
+    }
+
+    function updateSimpsonCalc() {
+      var ids = ['parcel-a1', 'parcel-a2', 'parcel-a3', 'parcel-a4'];
+      var vals = [];
+      var total = 0;
+      var sumSq = 0;
+
+      for (var i = 0; i < ids.length; i++) {
+        var el = document.getElementById(ids[i]);
+        var num = el ? parseFloat(el.value) : 0;
+        if (isNaN(num) || num < 0) num = 0;
+        vals.push(num);
+        total += num;
+        sumSq += num * num;
+      }
+
+      var totalEl = document.getElementById('calc-total');
+      var sumSqEl = document.getElementById('calc-sumsq');
+      var siEl = document.getElementById('calc-si');
+      var fiEl = document.getElementById('calc-fi');
+
+      if (total <= 0) {
+        if (totalEl) totalEl.textContent = `0.00 ha`;
+        if (sumSqEl) sumSqEl.textContent = `0.000`;
+        if (siEl) siEl.textContent = `--`;
+        if (fiEl) fiEl.textContent = `--`;
+        for (var k = 0; k < 4; k++) {
+          var emptyBar = document.getElementById('bar-a' + (k + 1));
+          if (emptyBar) emptyBar.style.width = `0%`;
+        }
+        return;
+      }
+
+      var si = sumSq / (total * total);
+      var fi = 1 - si;
+
+      if (totalEl) totalEl.textContent = total.toFixed(2) + ` ha`;
+      if (sumSqEl) sumSqEl.textContent = sumSq.toFixed(3);
+      if (siEl) siEl.textContent = si.toFixed(3);
+      if (fiEl) fiEl.textContent = fi.toFixed(3) + ` (` + (fi * 100).toFixed(1) + `%)`;
+
+      for (var j = 0; j < 4; j++) {
+        var bar = document.getElementById('bar-a' + (j + 1));
+        if (bar) {
+          bar.style.width = ((vals[j] / total) * 100).toFixed(2) + `%`;
+        }
+      }
+    }
+  </script>
+</body>
+</html>
 
