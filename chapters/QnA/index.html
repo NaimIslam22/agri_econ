@@ -14,42 +14,42 @@
       color-scheme: light;
 
       /* Page and surfaces: warm stone-white paper */
-      --background: #faf9f5;
+      --background: #ffffff;
       --surface-container-low: #ffffff;
-      --surface-container: #f1efe8;
-      --surface-container-high: #e6e2d6;
+      --surface-container: #f6f9fc;
+      --surface-container-high: #eaf2f8;
 
       /* Ink: #174c71 applied as primary font color throughout */
       --on-surface: #174c71;
-      --on-surface-variant: #2f5e7e;
+      --on-surface-variant: #2d5d7e;
 
       /* Rules */
       --outline: #174c71;
-      --outline-variant: #cfd8df;
+      --outline-variant: #d6e2eb;
 
       /* Accents */
       --primary: #174c71;
       --on-primary: #ffffff;
-      --primary-container: #f2b705;
+      --primary-container: #eaf2f8;
       --on-primary-container: #174c71;
       --secondary: #174c71;
-      --tertiary: #6e4a07;
-      --tertiary-container: #f5ead2;
+      --tertiary: #174c71;
+      --tertiary-container: #f2f7fb;
       --error: #a6261b;
       --on-error: #ffffff;
 
       /* Data series */
       --data-1: #174c71;
-      --data-2: #d99000;
-      --data-3: #2b6e52;
-      --data-4: #b84a39;
+      --data-2: #3b749c;
+      --data-3: #6396b8;
+      --data-4: #95bdd6;
       --data-context: #c2ccd4;
 
       /* Semantic */
-      --positive: #1f5c42;
-      --positive-container: #e3f0ea;
+      --positive: #174c71;
+      --positive-container: #eaf2f8;
       --warning: #8a5600;
-      --focus: #f2b705;
+      --focus: #174c71;
 
       /* Fonts */
       --font-headline: 'Source Serif 4', Georgia, serif;
@@ -183,6 +183,7 @@
       letter-spacing: var(--label-tracking);
       text-transform: uppercase;
       padding: 0.2rem 0.55rem;
+      border: 1px solid var(--outline-variant);
       border-radius: var(--badge-radius);
       display: inline-block;
     }
@@ -823,9 +824,15 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="../../assets/css/layout.css">
 </head>
-<body data-mode="full">
-  <main class="page-grid">
+<body data-mode="full" data-root="../../" data-chapter-id="chapter-04">
+  <div id="site-topbar-mount"></div>
+<div class="site-shell">
+  <div id="site-sidebar-mount"></div>
+  <div class="site-content-wrap">
+    <div id="site-breadcrumb-mount"></div>
+<main class="page-grid">
 
     <!-- Masthead -->
     <header class="masthead">
@@ -1646,6 +1653,9 @@
     </footer>
 
   </main>
+    <div id="site-pager-mount"></div>
+  </div>
+</div>
 
   <script>
     // Render KaTeX equations once katex library finishes loading
@@ -1850,6 +1860,7 @@
       }
     }
   </script>
+  <script src="../../config/chapters.js"></script>
+  <script src="../../assets/js/navigation.js"></script>
 </body>
 </html>
-
