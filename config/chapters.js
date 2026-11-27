@@ -60,6 +60,23 @@ window.STUDY_NOTES_CONFIG = {
         "India, Vietnam & Sub-Saharan Africa",
         "Exam Blueprint & Revision Table"
       ]
-    }
+    },
+    {
+  id: "chapter-04",
+  number: "04",
+  slug: "QnA",
+  path: "chapters/QnA/index.html",
+  title: "Exam Preparation Q&A (Lectures 1 & 2)",
+  shortTitle: "Exam Prep Q&A",
+  subtitle: "14 Grounded Exam Questions, Rapid Bullet Summaries & Interactive Simpson Index Calculator",
+  lectureSource: "Lectures 1 & 2 Exam Note",
+  topics: [
+    "Traditional Systems & Schultz",
+    "Milpa & Basat Case Studies",
+    "Simpson Fragmentation Index",
+    "Microeconomic Duality & Institutions",
+    "Agrarian-Industrial Matrix"
+  ]
+}
   ]
 };
