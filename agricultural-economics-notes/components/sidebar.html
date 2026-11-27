@@ -1,0 +1,32 @@
+<!-- Reusable Sidebar Navigation Component -->
+<div class="site-backdrop" id="siteBackdrop"></div>
+<aside class="site-sidebar" id="siteSidebar" aria-label="Chapter Navigation">
+  <div>
+    <div class="site-nav-group">
+      <p class="site-nav-label">Overview</p>
+      <ul class="site-nav-list">
+        <li>
+          <a class="site-nav-link" data-nav-id="home" data-root-href="index.html" href="index.html">
+            <span class="site-nav-badge">&#8962;</span>
+            <span>All Chapters (Home)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="site-nav-group">
+      <p class="site-nav-label">Course Chapters</p>
+      <ul class="site-nav-list" id="siteChapterNavList"></ul>
+    </div>
+  </div>
+  <div class="site-sidebar-tools">
+    <button type="button" class="site-tool-btn" id="toggleAllDetailsBtn" style="display:none;">
+      <span>Expand All Collapsibles</span>
+      <span>&#9662;</span>
+    </button>
+    <button type="button" class="site-tool-btn" onclick="window.print()">
+      <span>Print / Save as PDF</span>
+      <span>&#128438;</span>
+    </button>
+    <p class="site-sidebar-note">Original lecture notes preserved verbatim. Built for static hosting &amp; GitHub Pages.</p>
+  </div>
+</aside>
